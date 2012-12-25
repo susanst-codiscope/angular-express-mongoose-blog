@@ -6,9 +6,17 @@
 var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
-  aws = require('aws-sdk');
+  aws = require('aws-sdk'),
+  mongo = require('mongodb');
 
 var app = module.exports = express.createServer();
+
+//mongodb  configuration
+mongo.connect(process.env.MONGOLAB_URI, function(error, db) {
+  if (!error) {
+    console.log('mongolab connected');
+  }
+});
 
 
 
@@ -56,9 +64,9 @@ app.get('*', routes.index);
   var awsKey = process.env.S3_KEY;
   var mongolabKey = process.env.MLAB_KEY;
 
+  var port = process.env.PORT || 3000;
 
-
-app.listen(3000, function(){
+app.listen(port, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
-  console.log(mongolabKey);
+  console.log(process.env.MONGOLAB_URI);
 });

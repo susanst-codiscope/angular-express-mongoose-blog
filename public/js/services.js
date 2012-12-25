@@ -11,10 +11,4 @@ angular.module('myApp.services', []).
 
 //mongolab service
 
-app.factory("User", function ($mongolabResourceHttp) {
-	return $mongolabResourceHttp('users');
-});
 
-app.factory("Track", function ($mongolabResourceHttp) {
-	return $mongolabResourceHttp('tracks');
-});
