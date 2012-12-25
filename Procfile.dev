@@ -1,0 +1,4 @@
+S3_KEY=AKIAJ7SEKYJJ7DZDVA5A
+S3_SECRET=yIVoWPu6EoWa4KOstYKwt9uhr
+
+web: nodemon app.js
