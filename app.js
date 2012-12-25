@@ -53,7 +53,10 @@ app.delete('/api/post/:id', api.deletePost);
 app.get('*', routes.index);
 
 // Start server
+  var awsKey = ENV[AWS_ACCESS_KEY_ID];
+
 
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+  console.log("config.api_key");
 });
