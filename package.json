@@ -5,5 +5,10 @@
   , "dependencies": {
       "express": "2.5.10"
     , "jade": ">= 0.0.1"
+    , "aws-sdk": ">= 1.x.x"
+  },
+  "engines": {
+  	"node": "0.8.x",
+  	"npm": "1.1.x"
   }
 }
