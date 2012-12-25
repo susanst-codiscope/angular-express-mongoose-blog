@@ -2,11 +2,14 @@
 
 /* Controllers */
 
-function IndexCtrl($scope, $http) {
+function IndexCtrl($scope, $http, User) {
   $http.get('/api/posts').
     success(function(data, status, headers, config) {
       $scope.posts = data.posts;
     });
+    User.all(function(users) {
+      $scope.users = users;
+    })
 }
 
 function AddPostCtrl($scope, $http, $location) {

@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives']).
+var app = angular.module('myApp', ['myApp.filters', 'mongolabResourceHttp', 'myApp.services', 'myApp.directives']).
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
@@ -25,7 +25,11 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
         controller: DeletePostCtrl
       }).
       otherwise({
-        redirectTo: '/'
+        redirectTo: '/',
+        resolve: {}
       });
     $locationProvider.html5Mode(true);
   }]);
+
+
+app.constant('MONGOLAB_CONFIG',{API_KEY:'50b70252e4b01e3a4a9cb6c7', DB_NAME:'hobotracks'});
