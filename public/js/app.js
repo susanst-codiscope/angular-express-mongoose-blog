@@ -30,6 +30,6 @@ var app = angular.module('myApp', ['myApp.filters', 'mongolabResourceHttp', 'myA
       });
     $locationProvider.html5Mode(true);
   }]);
+var mongolabKey = process.env.MLAB_KEY;
 
-
-app.constant('MONGOLAB_CONFIG',{API_KEY:'50b70252e4b01e3a4a9cb6c7', DB_NAME:'hobotracks'});
+app.constant('MONGOLAB_CONFIG',{API_KEY:'mongolabKey', DB_NAME:'hobotracks'});

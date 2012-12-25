@@ -1,4 +1,8 @@
-S3_KEY=AKIAJ7SEKYJJ7DZDVA5A
-S3_SECRET=yIVoWPu6EoWa4KOstYKwt9uhr
+GITHUB_USERNAME: timothybone
+MLAB_KEY:        50b70252e4b01e3a4a9cb6c7
+PATH:            bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin
+S3_BUCKET:       hobotracks
+S3_KEY:          AKIAJ7SEKYJJ7DZDVA5A
+S3_SECRET:       yIVoWPu6EoWa4KOstYKwt9uhr
 
 web: nodemon app.js
