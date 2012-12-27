@@ -51,18 +51,18 @@ exports.post = function (req, res) {
 
 // POST
 
-exports.addTrack = function (req, res) {
-  data.track.push(req.body);
+exports.addPost = function (req, res) {
+  data.push(req.body);
   res.json(req.body);
 };
 
 // PUT
 
-exports.editTrack = function (req, res) {
+exports.editPost = function (req, res) {
   var id = req.params.id;
 
   if (id >= 0 && id < data.length) {
-    data.track[id] = req.body;
+    data[id] = req.body;
     res.json(true);
   } else {
     res.json(false);
@@ -71,11 +71,11 @@ exports.editTrack = function (req, res) {
 
 // DELETE
 
-exports.deleteTrack = function (req, res) {
+exports.deletePost = function (req, res) {
   var id = req.params.id;
 
-  if (id >= 0 && id < data.track.length) {
-    data.track.splice(id, 1);
+  if (id >= 0 && id < data.length) {
+    data.splice(id, 1);
     res.json(true);
   } else {
     res.json(false);
