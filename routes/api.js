@@ -5,7 +5,7 @@
 // For a real app, you'd make database requests here.
 // For this example, "data" acts like an in-memory "database"
 var mongoose = require('mongoose');
-mongoose.connect('localhost', 'test')
+mongoose.connect(process.env.MONGOLAB_URI);
 
 var trackSchema = mongoose.Schema({title: 'string', text: 'string'});
 var Track = mongoose.model('Track', trackSchema);
