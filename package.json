@@ -7,7 +7,7 @@
     , "jade": ">= 0.0.1"
     , "aws-sdk": ">= x.x.x"
     , "mongoose": "x.x.x"
-    , "mongodb": "x.x.x."
+    , "mongodb": "x.x.x"
   },
   "engines": {
   	"node": "0.8.x",
