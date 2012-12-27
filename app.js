@@ -6,7 +6,8 @@
 var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
-  aws = require('aws-sdk');
+  aws = require('aws-sdk'),
+  mongo = require('mongodb');
 
 var app = module.exports = express.createServer();
 
