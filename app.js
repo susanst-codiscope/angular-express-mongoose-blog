@@ -12,11 +12,6 @@ var express = require('express'),
 var app = module.exports = express.createServer();
 
 //mongodb  configuration
-mongo.connect(process.env.MONGOLAB_URI, function(error, db) {
-  if (!error) {
-    console.log('mongolab connected');
-  }
-});
 
 
 
@@ -50,7 +45,7 @@ app.get('/partials/:name', routes.partials);
 
 // JSON API
 
-app.get('/api/posts', api.posts);
+app.get('/api/tracks', api.tracks);
 
 app.get('/api/post/:id', api.post);
 app.post('/api/post', api.addPost);
@@ -68,5 +63,4 @@ app.get('*', routes.index);
 
 app.listen(port, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
-  console.log(process.env.MONGOLAB_URI);
 });

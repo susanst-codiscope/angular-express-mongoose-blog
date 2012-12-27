@@ -4,40 +4,40 @@
 
 // For a real app, you'd make database requests here.
 // For this example, "data" acts like an in-memory "database"
-var data = {
-  "posts": [
-    {
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-      "title": "Sed egestas",
-      "text": "Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus."
-    }
-  ]
-};
+var mongoose = require('mongoose');
+mongoose.connect('localhost', 'test')
+
+var trackSchema = mongoose.Schema({title: 'string', text: 'string'});
+
+
+var Track = mongoose.model('Track', trackSchema);
+
+var data = 
 
 // GET
 
-exports.posts = function (req, res) {
-  var posts = [];
-  data.posts.forEach(function (post, i) {
-    posts.push({
-      id: i,
-      title: post.title,
-      text: post.text.substr(0, 50) + '...'
-    });
-  });
-  res.json({
-    posts: posts
-  });
-};
+exports.tracks = function (req, res) {
+    var tracks = [];
+    var Track = mongoose.model('Track', trackSchema);
+      Track.find({}, function (err, records) {
+        records.forEach(function (track, i) {
+          tracks.push({
+            id: track.id,
+            title: track.title,
+            text: track.text.substr(0, 50) + '...'
+          });
+        });
+        res.json({
+          tracks: tracks
+        });
+      });
+    };
 
 exports.post = function (req, res) {
   var id = req.params.id;
-  if (id >= 0 && id < data.posts.length) {
+  if (id >= 0 && id < data.track.length) {
     res.json({
-      post: data.posts[id]
+      post: data.track[id]
     });
   } else {
     res.json(false);
@@ -46,18 +46,18 @@ exports.post = function (req, res) {
 
 // POST
 
-exports.addPost = function (req, res) {
-  data.posts.push(req.body);
+exports.addTrack = function (req, res) {
+  data.track.push(req.body);
   res.json(req.body);
 };
 
 // PUT
 
-exports.editPost = function (req, res) {
+exports.editTrack = function (req, res) {
   var id = req.params.id;
 
-  if (id >= 0 && id < data.posts.length) {
-    data.posts[id] = req.body;
+  if (id >= 0 && id < data.track.length) {
+    data.track[id] = req.body;
     res.json(true);
   } else {
     res.json(false);
@@ -66,11 +66,11 @@ exports.editPost = function (req, res) {
 
 // DELETE
 
-exports.deletePost = function (req, res) {
+exports.deleteTrack = function (req, res) {
   var id = req.params.id;
 
-  if (id >= 0 && id < data.posts.length) {
-    data.posts.splice(id, 1);
+  if (id >= 0 && id < data.track.length) {
+    data.track.splice(id, 1);
     res.json(true);
   } else {
     res.json(false);
