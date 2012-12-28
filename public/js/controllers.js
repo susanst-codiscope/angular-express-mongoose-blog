@@ -17,6 +17,8 @@ function AddPostCtrl($scope, $http, $location) {
         $location.path('/');
       });
   };
+  $scope.addImage = function () {
+  };
 }
 
 function ReadPostCtrl($scope, $http, $routeParams) {
