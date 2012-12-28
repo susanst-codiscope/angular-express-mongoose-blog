@@ -120,31 +120,17 @@ app.delete('/api/post/:id', api.deletePost);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// serve a main page
-app.get('/', function(req, res, next) {
-    res.render('index', { title: 'Upload a single file (using Express BodyParser())' })
-});
 
 app.post('/single-file', setS3ObjectName, s3StreamMiddleware, function(req, res, next) {
     console.log('Single file uploaded as : ' + req.files.file.s3ObjectName);
-    res.redirect('/thanks');
 });
 
 app.post('/multiple-files', randomiseS3ObjectNames, s3StreamMiddleware, function(req, res, next) {
     for(var key in req.files) {
         console.log('File "' + key + '" uploaded as : ' + req.files[key].s3ObjectName);
     }
-    res.redirect('/thanks');
 });
 
-app.post('/upload', s3StreamMiddleware, function(req, res, next) {
-    console.log('We should never get here, since connect-stream-s3 will error out');
-    res.redirect('/thanks');
-});
-
-app.get('/thanks', function(req, res, next) {
-    res.render('thanks', { title: 'Thanks' })
-});
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
