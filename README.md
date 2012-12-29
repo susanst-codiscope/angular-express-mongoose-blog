@@ -1,8 +1,9 @@
 Angular Express Seed Example App
 Based on the Angular Express Seed, this simple app illustrates how to use AngularJS and Express on a Node.js server to make a simple blog.
 
+Mongoose is used to interface with a Mongodb database. I've also included support to add files to Amazon Web Services using connect-stream-s3.
 
-This project is based off of Brian Ford's work.  All i've done here is add Mongoose to it for the database.
+This project is based off of Brian Ford's work. 
 
 	https://github.com/btford/angular-express-blog
 
