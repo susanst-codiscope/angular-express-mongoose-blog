@@ -11,8 +11,9 @@ var http = require('http'),
   amazon = require('awssum').load('amazon/amazon');
 
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 // set up some middleware that we'll specifically use for certain paths
+//IMPORTANT! YOU MUST PROVIDE THESE PROCESS VARIABLES. Do so with a .env file, with export command (via command line), or config variables from the production server (I like heroku)
 var s3StreamMiddleware = streamS3({
     accessKeyId     : process.env.ACCESS_KEY_ID,
     secretAccessKey : process.env.SECRET_ACCESS_KEY,
@@ -78,7 +79,7 @@ var randomiseS3ObjectNames = function(req, res, next) {
 
 // ----------------------------------------------------------------------------
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var app = module.exports = express.createServer();
 // Configuration
@@ -111,7 +112,7 @@ app.get('/partials/:name', routes.partials);
 
 // JSON API
 
-app.get('/api/tracks', api.tracks);
+app.get('/api/posts', api.posts);
 
 app.get('/api/post/:id', api.post);
 app.post('/api/post', api.addPost);

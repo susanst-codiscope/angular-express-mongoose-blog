@@ -2,43 +2,20 @@
  * Serve JSON to our AngularJS client
  */
 
-// For a real app, you'd make database requests here.
-// For this example, "data" acts like an in-memory "database"
+
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI);
 
 var trackSchema = mongoose.Schema({title: 'string', text: 'string'});
 var Track = mongoose.model('Track', trackSchema);
-/*
-var woods = new Track({title: 'new hobotrack', text: "it's a goodone"});
-woods.save();  
-////
-
-Track.find(function (err, tracks) {
-  tracks.forEach(function (track, i) {
-    
-    console.log(track.text);
-    });
-  });*/
 
 
 // GET
 
-exports.tracks = function (req, res) {  
-  Track.find({}, function (err, tracks) {
-   // console.log("number of tracks: " + tracks.length );
-    //console.log("the records: " + records);
-    /*records.forEach(function (track, i) {
-      data.push({
-        id: i,
-        title: track.title,
-        text: track.text.substr(0, 50) + '...'
-      });
-    });*/
-
-
+exports.posts = function (req, res) {  
+  Track.find({}, function (err, posts) {
         res.json({
-          tracks: tracks
+          posts: posts
         });
   });
 };
@@ -51,17 +28,6 @@ exports.post = function (req, res) {
     });
 });
 };
-/*
-  var id = req.params.id;
-  if (id >= 0 && id < data.length) {
-    res.json({
-      post: data[id]
-    });
-  } else {
-    res.json(false);
-  }*/
-
-
 // POST
 
 exports.addPost = function (req, res) {
@@ -95,12 +61,5 @@ exports.deletePost = function (req, res) {
       res.json(false);
     }
   });
-  /*var id = req.params.id;
-  if (id >= 0 && id < data.length) {
-    data.splice(id, 1);
-    res.json(true);
-  } else {
-    res.json(false);
-  }*/
 };
 

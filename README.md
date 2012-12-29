@@ -1,9 +1,31 @@
-This is the repository for hobotracks.org.
+Angular Express Seed Example App
+Based on the Angular Express Seed, this simple app illustrates how to use AngularJS and Express on a Node.js server to make a simple blog.
 
-Hobotracks is a website for travelers. 
 
-TODO:
+This project is based off of Brian Ford's work.  All i've done here is add Mongoose to it for the database.
 
-now the fun part...(hard word still lots of): put together a fun way to display hobo-signs!
+	https://github.com/btford/angular-express-blog
 
-Everyauth authorization, fuckin' hate having to make a login for my site, i hate when sites make users do that...It's a pretty lame way to prove someones a human anyway, good thing we'z got betterz wayz
+Steps to get this working:
+
+The usual....
+
+	npm install 
+	
+I also think it's nice using nodeman, so....:
+
+	npm install nodemon -g
+	
+to start the server, I recommend using this command:
+
+	foreman start -f Procfile.dev
+
+We are starting foreman with a development version of Procfile so when you deploy to heroku, it's already properly set up to use the plain Procfile. Procfile.dev is for development only. 
+
+If you want to deploy to Heroku, you will need to set your heroku config  variables:
+
+	https://devcenter.heroku.com/articles/config-vars
+
+
+
+
