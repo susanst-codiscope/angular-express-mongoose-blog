@@ -16,7 +16,7 @@ I also think it's nice using nodeman, so....:
 
 	npm install nodemon -g
 	
-You may also need to set up mongodb, so that Mongoose can use a local instance. I like using homebrew:
+Set up mongodb if you don't got it so that Mongoose can use it. I like using homebrew:
 
 	brew install mongodb
 	
