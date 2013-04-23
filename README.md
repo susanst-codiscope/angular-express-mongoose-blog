@@ -20,10 +20,18 @@ I also think it's nice using nodeman, so....:
 Set up mongodb if you don't got it so that Mongoose can use it. I like using homebrew:
 
 	brew install mongodb
+
+And start-up a mongod service in terminal:
+
+	mongod
 	
 to start the server, I recommend using this command:
 
 	foreman start -f Procfile.dev
+
+Or if you're l55t then use this:
+
+	./go
 
 We are starting foreman with a development version of Procfile so when you deploy to heroku, it's already properly set up to use the plain Procfile. Procfile.dev is for development only. 
 
