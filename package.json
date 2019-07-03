@@ -7,10 +7,16 @@
     "jade": ">= 0.0.1",
     "mongoose": "x.x.x",
     "async": "~0.1.xx",
-    "awssum": "~0.12.xx"
+    "awssum": "~0.12.xx",
+    "snyk": "^1.189.0"
   },
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
